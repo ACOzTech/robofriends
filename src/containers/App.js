@@ -25,6 +25,7 @@ class App extends Component {
   }
 
   render() {
+    const randomSet = Math.floor(Math.random() * 5);
     const {robots, searchfield} = this.state;
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchfield.toLowerCase());
@@ -37,7 +38,7 @@ class App extends Component {
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>
             <ErrorBoundary>
-              <CardList robots={filteredRobots}/>
+              <CardList robots={filteredRobots} roboSet={randomSet}/>
             </ErrorBoundary>
           </Scroll>
         </div>
